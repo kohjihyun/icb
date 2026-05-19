@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICB — Cross-Border Fintech Leading Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'icb-orange': '#e52006',
+            'icb-orange-dark': '#ea4109',
+            'icb-orange-bright': '#ea3609',
+            'icb-dark': '#0c121c',
+            'icb-beige': '#f5ece9',
+            'icb-bg': '#f8f3f2',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            sora: ['Sora', 'sans-serif'],
+          },
+          maxWidth: {
+            site: '1440px',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="bg-icb-bg font-inter text-[#111] antialiased">
+
+  <!-- Hero: 816px, 영상은 뷰포트 풀블리드(선명도), UI는 1440 그리드 -->
+  <section id="hero" class="relative w-full h-[816px] min-h-[816px] bg-[#0b0f14] overflow-hidden" data-name="Hero">
+    <div class="hero-media absolute inset-0 w-full h-full overflow-hidden" data-name="video-area">
+      <video
+        class="hero-video absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 w-auto h-auto max-w-none object-cover object-center"
+        src="./assets/hero-video.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        aria-hidden="true"
+      ></video>
+      <!-- color2: Figma soft-light 레이어 -->
+      <div class="absolute inset-0 pointer-events-none bg-[#0b121e] mix-blend-soft-light" data-name="color2"></div>
+      <div class="hero-overlay-top absolute inset-0 pointer-events-none bg-gradient-to-b from-[#070b12]/70 via-[#070b12]/30 to-transparent"></div>
+      <div class="hero-overlay-vignette absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_85%_70%_at_50%_45%,transparent_0%,rgba(5,8,14,0.40)_100%)]"></div>
+      <div class="hero-overlay-base absolute inset-0 pointer-events-none bg-[#0d0d0e]/60"></div>
+    </div>
+
+    <div class="figma-canvas relative z-20 mx-auto h-full max-w-[1440px]" data-name="Hero UI">
+      <!-- GNB: 프레임 기준 x=160 y=48, 너비 1118 -->
+      <header class="absolute left-4 right-4 top-6 z-20 lg:left-[160px] lg:right-auto lg:top-[48px] lg:w-[1118px] lg:max-w-[calc(100%-320px)]">
+        <nav class="flex w-full items-center justify-between bg-icb-orange rounded-lg py-[18px] px-6 md:px-10 max-md:flex-wrap max-md:gap-3 min-h-[63px] box-border" data-name="GNB">
+          <a href="#" class="shrink-0 pl-0 md:pl-2" aria-label="ICB Home">
+            <svg class="h-6 w-16" viewBox="0 0 64 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M44.2739 6.8025C45.3617 6.8025 46.427 6.96362 47.4496 7.27476L46.8942 10.9357C46.289 10.6822 45.6031 10.5323 44.883 10.5015C44.7682 10.4939 44.6535 10.4939 44.5387 10.4939C41.1949 10.4939 39.4443 12.6026 39.4443 14.6845C39.4443 15.6986 39.8196 16.678 40.7733 17.3886C41.6313 18.0301 42.8837 18.2763 44.1018 18.2763C44.2893 18.2763 44.4808 18.2647 44.6607 18.2494C45.0629 18.2148 45.4576 18.1416 45.8406 18.0302L45.3618 21.2951C44.7413 21.514 43.6154 21.8218 42.1371 21.8218C41.8729 21.8218 41.6007 21.81 41.3288 21.7908C39.0537 21.6256 37.1807 20.6922 36.0623 19.1558C34.9668 17.6501 34.6679 15.6833 35.2002 13.4593C36.3431 8.69632 40.552 6.91069 43.9514 6.80367L44.2739 6.8025Z" fill="white"/>
+              <path d="M30.8299 21.6103H26.6053L28.7692 7.06734H32.9939L30.8299 21.6103Z" fill="white"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M60.4726 7.06734C61.61 7.06739 62.4946 7.38619 63.1035 8.01597C63.7202 8.65362 64.0307 9.59127 63.9962 10.7283C63.9502 12.2454 63.1307 13.1905 62.7822 13.5285L62.416 13.8795L62.7551 14.2545C63.1725 14.723 63.663 15.5487 63.6248 16.8238C63.5367 19.7316 61.453 21.6102 58.3123 21.6103H49.2533L51.4178 7.06734H60.4726ZM53.9302 18.3531H57.6071C57.7756 18.3531 58.3582 18.3222 58.7527 17.9189C58.9825 17.6846 59.097 17.3692 59.0894 17.0312C59.0932 16.9499 59.0932 16.5356 58.7757 16.198C58.5344 15.9445 58.197 15.8136 57.7757 15.8136H54.3093L53.9302 18.3531ZM54.7574 12.8212H58.3924C58.5505 12.8212 59.0723 12.7945 59.462 12.4586L59.534 12.3877C59.7599 12.1495 59.8789 11.8342 59.8712 11.4923C59.875 11.3808 59.8591 10.9893 59.5528 10.6668C59.3116 10.4133 58.9787 10.2824 58.5575 10.2824H55.133L54.7574 12.8212Z" fill="white"/>
+              <path d="M13.13 22.3168C10.6135 23.5268 8.01676 24.3182 4.02564 23.9955L4.02918 23.992C5.22805 23.7807 6.91746 23.4463 8.92835 22.6742C10.6481 22.0136 12.0807 21.1876 13.4826 20.3041L13.13 22.3168Z" fill="white"/>
+              <path d="M18.6418 6.44143C5.48113 9.78716 2.44752 16.8397 1.96491 18.7795C1.89216 19.0752 1.84639 19.375 1.84639 19.6783C1.83884 22.5704 4.0943 22.8008 4.77623 22.8008C4.83751 22.8008 4.84521 22.7817 4.83755 22.7586C4.83333 22.7433 4.78389 22.7281 4.78389 22.7281C1.91131 21.6603 3.42069 18.3606 3.42069 18.3606C5.78021 12.8139 14.7124 9.50297 20.3735 8.46584L20.5492 7.37483L24.2456 10.5207H24.2532L19.5917 13.7358L19.7644 12.5563C9.3461 13.7048 5.83343 17.9075 4.84522 19.2981C3.5969 21.0532 4.55791 22.2705 4.9372 22.5242C5.00231 22.5703 4.99467 22.5242 4.97552 22.4897C4.59276 21.8213 5.38177 20.7998 5.38177 20.7998C6.5692 19.2211 10.0775 16.4286 15.6082 15.5873L15.2025 18.326C12.6631 18.7485 11.0464 19.5244 9.29981 20.4424C7.44608 21.418 5.88744 22.6782 4.97198 23.1699C3.61224 23.9036 1.37125 23.5155 0.528588 21.9061C-0.57453 19.8011 -0.0497529 16.6779 3.06043 12.2182C6.71451 6.98664 14.3902 4.2405 19.0976 3.29553L18.6418 6.44143Z" fill="white"/>
+              <path d="M15.3175 2.33108C8.50345 4.61661 4.41249 8.70758 3.51621 11.2889H3.51267C4.41664 8.46558 7.58783 2.83445 15.6542 0.0687714L15.3175 2.33108Z" fill="white"/>
+            </svg>
+          </a>
+          <ul class="hidden md:flex items-center gap-10 text-white text-base font-medium tracking-[0.32px]">
+            <li><a href="#" class="hover:opacity-80 transition-opacity">PERSONAL</a></li>
+            <li><a href="#" class="hover:opacity-80 transition-opacity">BUSINESS</a></li>
+            <li><a href="#" class="hover:opacity-80 transition-opacity">COMPANY</a></li>
+          </ul>
+          <div class="flex items-center gap-6 pr-0 md:pr-2">
+            <button type="button" class="flex items-center gap-1 border border-[#ed7300] rounded-lg pl-4 pr-3 py-1.5 text-[#e1e1e2] text-xs font-medium tracking-normal">
+              EN
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4.2 6.4L8 10.2L11.8 6.4" stroke="#E1E1E2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <a href="#" class="bg-[#ffddd5] text-[#e52f06] text-xs font-semibold tracking-[-0.12px] px-3 py-1.5 rounded-md">CONTACT</a>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Hero Title EN: 중앙 정렬, top=224px -->
+      <div
+        class="absolute left-1/2 -translate-x-1/2 top-[224px] z-10 w-[986px] max-w-[calc(100%-2rem)] text-center text-white"
+        data-name="Hero Title EN"
+      >
+        <h1 class="text-[clamp(2.75rem,7vw,96px)] font-semibold leading-[1.08] tracking-[-0.02em]">
+          <span class="block">Cross-Border</span>
+          <span class="block">Fintech</span>
+          <span class="block">Leading Company</span>
+        </h1>
+        <p class="mx-auto mt-8 w-full max-w-[610px] text-[clamp(1rem,2.2vw,22px)] font-normal leading-[1.45] text-white/95 tracking-[-0.01em]">
+          ICB is a cross-border payment and settlement infrastructure company for platforms and enterprises.
+        </p>
+      </div>
+
+      <!-- scroll: 캔버스 중앙 +6.5px, y=717 -->
+      <div class="hero-scroll-indicator absolute bottom-10 left-1/2 z-10 -translate-x-1/2 lg:bottom-auto lg:left-[calc(50%+6.5px)] lg:top-[717px]" data-name="scroll">
+        <span class="hero-scroll-text font-sora font-semibold text-base text-white w-[67px] text-center leading-5">SCROLL</span>
+        <span class="hero-scroll-line mx-auto" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- section1_Company-Intro: zone-section1 래핑 -->
+  <div id="zone-section1" class="section-zone">
+    <section id="section1-company-intro" class="section1-intro" data-name="section1_Company-Intro">
+      <div class="section1-inner">
+        <div class="intro-lines-wrap">
+          <p class="intro-line text-[88px] max-lg:text-[clamp(2.5rem,10vw,4rem)] font-semibold leading-[1.6] tracking-[-0.01em] text-icb-orange" data-line="0">Seamless</p>
+          <p class="intro-line text-[88px] max-lg:text-[clamp(2.5rem,10vw,4rem)] font-semibold leading-[1.6] tracking-[-0.01em] text-icb-orange" data-line="1">Payments</p>
+          <p class="intro-line text-[88px] max-lg:text-[clamp(2.5rem,10vw,4rem)] font-semibold leading-[1.6] tracking-[-0.01em] text-icb-orange" data-line="2">Boundless Growth</p>
+        </div>
+        <p class="intro-line intro-sub text-xl font-light leading-[1.4] tracking-[-0.01em] text-white" data-line="3">Driving secure and efficient cross-border transactions for a connected world.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- section2_Business-Services: zone-section2 래핑 -->
+  <div id="zone-section2" class="section-zone">
+    <section id="section2-business-services" class="relative w-full h-[1402px] min-h-[1402px] bg-white shadow-[0_4px_2px_rgba(0,0,0,0.25)] overflow-hidden" data-name="section2_Business-Services">
+      <div class="figma-canvas relative mx-auto h-full max-w-[1440px] px-4 lg:px-[160px]">
+        <h2
+          class="biz-title-reveal absolute left-1/2 -translate-x-1/2 top-[90px] text-center text-[clamp(2.25rem,5.5vw,80px)] font-semibold leading-[1.15] tracking-[-0.04em] text-icb-orange-dark"
+        >
+          <span class="biz-title-line block overflow-hidden py-[0.06em]"><span class="biz-title-inner block">One Platform.</span></span>
+          <span class="biz-title-line block overflow-hidden py-[0.06em]"><span class="biz-title-inner block">Every Payment.</span></span>
+        </h2>
+
+        <div id="frame-23" class="absolute inset-x-0 top-[393px] h-[760px] lg:inset-x-0" data-name="Frame 23">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-10 max-w-[1120px] mx-auto">
+            <article class="biz-card relative h-[360px] w-full max-w-[540px] lg:mx-0 mx-auto rounded-2xl overflow-hidden">
+              <img src="./assets/global-payment.png" alt="Cross-Border Payment" class="absolute inset-0 w-full h-full object-cover" />
+              <span class="absolute left-10 top-8 bg-[#e1e1e2] text-[#090f1a] text-xs font-medium tracking-[-0.12px] px-3 py-1 rounded-full">Business Services</span>
+              <div class="absolute left-10 bottom-10 text-white text-left">
+                <h3 class="text-[28px] font-semibold tracking-[-0.03em] leading-tight">Cross-Border Payment</h3>
+                <p class="text-base font-normal tracking-[-0.01em] mt-2 opacity-90">Integrated global payment infrastructure.</p>
+              </div>
+              <span class="absolute right-6 bottom-[34px] w-[46px] h-[46px]" aria-hidden="true">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="20" fill="#E1E1E2"/><path d="M29.0943 19.0687L18.364 29.799L16.9497 28.3848L27.6801 17.6545H19.7605V15.6569H31.0919V26.9706L29.0943 26.9883V19.0687Z" fill="#3B3C3D"/></svg>
+              </span>
+            </article>
+
+            <article class="biz-card relative h-[360px] w-full max-w-[540px] lg:mx-0 mx-auto rounded-2xl overflow-hidden">
+              <img src="./assets/b2b-settlement.png" alt="B2B Settlement" class="absolute inset-0 w-full h-full object-cover" />
+              <span class="absolute left-10 top-8 bg-[#e1e1e2] text-[#090f1a] text-xs font-medium tracking-[-0.12px] px-3 py-1 rounded-full">Business Services</span>
+              <div class="absolute left-10 bottom-10 text-white text-left">
+                <h3 class="text-[28px] font-semibold tracking-[-0.03em] leading-tight">B2B Settlement</h3>
+                <p class="text-base font-normal tracking-[-0.03em] mt-2 opacity-90">Fast and accurate B2B trade settlement.</p>
+              </div>
+              <span class="absolute right-[35px] bottom-[34px] w-[46px] h-[46px]" aria-hidden="true">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="20" fill="#E1E1E2"/><path d="M29.0943 19.0687L18.364 29.799L16.9497 28.3848L27.6801 17.6545H19.7605V15.6569H31.0919V26.9706L29.0943 26.9883V19.0687Z" fill="#3B3C3D"/></svg>
+              </span>
+            </article>
+
+            <article class="biz-card relative h-[360px] w-full max-w-[540px] lg:mx-0 mx-auto rounded-2xl overflow-hidden">
+              <img src="./assets/payment-link.png" alt="Payment Link" class="absolute inset-0 w-full h-full object-cover" />
+              <span class="absolute left-10 top-8 bg-[#e1e1e2] text-[#090f1a] text-xs font-medium tracking-[-0.12px] px-3 py-1 rounded-full">Business Services</span>
+              <div class="absolute left-10 bottom-10 text-white text-left">
+                <h3 class="text-[28px] font-semibold tracking-[-0.03em] leading-tight">Payment Link</h3>
+                <p class="text-base font-normal tracking-[-0.01em] mt-2 opacity-90">Simple remote payment via shareable links.</p>
+              </div>
+              <span class="absolute right-[35px] bottom-[34px] w-[46px] h-[46px]" aria-hidden="true">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="20" fill="#E1E1E2"/><path d="M29.0943 19.0687L18.364 29.799L16.9497 28.3848L27.6801 17.6545H19.7605V15.6569H31.0919V26.9706L29.0943 26.9883V19.0687Z" fill="#3B3C3D"/></svg>
+              </span>
+            </article>
+
+            <article class="biz-card relative h-[360px] w-full max-w-[540px] lg:mx-0 mx-auto rounded-2xl overflow-hidden">
+              <img src="./assets/prepaid-card.png" alt="Prepaid Card" class="absolute inset-0 w-full h-full object-cover" />
+              <span class="absolute left-10 top-8 bg-[#e1e1e2] text-[#090f1a] text-xs font-medium tracking-[-0.12px] px-3 py-1 rounded-full">Business Services</span>
+              <div class="absolute left-10 bottom-10 text-white text-left">
+                <h3 class="text-[28px] font-semibold tracking-[-0.03em] leading-tight">Prepaid Card</h3>
+                <p class="text-base font-normal tracking-[-0.01em] mt-2 opacity-90">Customized corporate prepaid solutions.</p>
+              </div>
+              <span class="absolute right-[35px] bottom-[34px] w-[46px] h-[46px]" aria-hidden="true">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="20" fill="#E1E1E2"/><path d="M29.0943 19.0687L18.364 29.799L16.9497 28.3848L27.6801 17.6545H19.7605V15.6569H31.0919V26.9706L29.0943 26.9883V19.0687Z" fill="#3B3C3D"/></svg>
+              </span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- section3_count: zone-section3 래핑 -->
+  <div id="zone-section3" class="section-zone">
+    <section id="section3-count" class="relative w-full h-[1091px] min-h-[1091px] bg-icb-beige overflow-hidden" data-name="section3_count">
+      <div class="figma-canvas relative h-full mx-auto">
+        <div class="absolute left-1/2 -translate-x-1/2 top-[75px]">
+          <span class="inline-block bg-icb-orange-dark text-white text-xl font-normal tracking-[-0.01em] px-6 py-2.5 rounded-[31px]">Trust Indicators</span>
+        </div>
+        <div class="absolute left-1/2 -translate-x-1/2 top-[188px] w-[1135px] max-w-[calc(100%-2rem)] flex flex-col items-center gap-[88px]">
+          <div class="count-stack flex flex-col items-center gap-20 w-full">
+            <div class="count-reveal flex flex-col items-center gap-[25px] text-[#10181d]">
+              <p class="text-[80px] font-extrabold tracking-[-0.01em] leading-none">
+                <span class="reveal-clip"><span class="reveal-char">1.5B USD</span></span>
+              </p>
+              <p class="text-lg font-normal tracking-[-0.01em] text-center">
+                <span class="reveal-clip"><span class="reveal-char" style="--delay:0.1s">Annual Transaction Volume</span></span>
+              </p>
+            </div>
+            <div class="count-reveal flex flex-col items-center gap-[25px] text-[#10181d]">
+              <p class="text-[80px] font-extrabold tracking-[-0.01em] leading-none">
+                <span class="reveal-clip"><span class="reveal-char">2.1M</span></span>
+              </p>
+              <p class="text-lg font-normal tracking-[-0.01em]">
+                <span class="reveal-clip"><span class="reveal-char" style="--delay:0.1s">QR Payment Locations</span></span>
+              </p>
+            </div>
+            <div class="count-reveal flex flex-col items-center gap-[25px] text-[#10181d]">
+              <p class="text-[80px] font-extrabold tracking-[-0.01em] leading-none">
+                <span class="reveal-clip"><span class="reveal-char">3M+</span></span>
+              </p>
+              <p class="text-lg font-normal tracking-[-0.01em]">
+                <span class="reveal-clip"><span class="reveal-char" style="--delay:0.1s">Directly Contracted Merchants</span></span>
+              </p>
+            </div>
+          </div>
+          <div class="count-row flex flex-col md:flex-row items-center justify-center gap-8 md:gap-[61px] text-icb-orange-dark w-full whitespace-nowrap max-md:whitespace-normal">
+            <div class="count-reveal flex items-center gap-[25px]">
+              <span class="text-[96px] font-extrabold leading-none">
+                <span class="reveal-clip"><span class="reveal-char">18</span></span>
+              </span>
+              <span class="text-lg font-medium tracking-[-0.01em]">
+                <span class="reveal-clip"><span class="reveal-char" style="--delay:0.1s">Countries with</span></span>
+              </span>
+            </div>
+            <div class="count-reveal flex items-center gap-[25px]">
+              <span class="text-[96px] font-bold leading-none">
+                <span class="reveal-clip"><span class="reveal-char">35</span></span>
+              </span>
+              <span class="text-lg font-medium tracking-[-0.01em] text-center">
+                <span class="reveal-clip"><span class="reveal-char" style="--delay:0.1s">Global Payment Methods</span></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 카드배너1: zone-section4a 래핑 (sticky + 캐러셀 스크롤 완료 후 다음 섹션) -->
+  <div id="zone-section4a" class="section-zone">
+    <section id="section4a-licenses" class="relative w-full h-[1020px] min-h-[1020px] bg-icb-dark text-center" data-name="카드배너">
+      <div class="figma-canvas relative h-full mx-auto">
+        <span class="absolute left-1/2 -translate-x-1/2 top-[63px] inline-block bg-icb-orange-dark text-white text-lg tracking-[-0.02em] px-6 py-2.5 rounded-[31px]">Licenses &amp; Patents</span>
+        <h2 class="absolute left-1/2 -translate-x-1/2 top-[168px] w-[730px] max-w-[calc(100%-2rem)] text-[80px] max-lg:text-[clamp(2rem,6vw,3rem)] font-medium leading-[1.2] tracking-[-0.04em] text-icb-orange">Electronic Financial Licenses</h2>
+        <p class="absolute left-1/2 -translate-x-1/2 top-[372px] text-lg font-light tracking-[-0.02em] text-white">Licensed to power secure global payments</p>
+        <!-- 캐러셀1: 피그마 top=425, h=499 -->
+        <div id="carousel1-host" class="carousel-host top-[425px] h-[499px]">
+          <div class="carousel-scene"></div>
+        </div>
+        <p class="absolute left-1/2 -translate-x-1/2 bottom-[96px] text-xs tracking-[1px] text-white">Scroll Down ↓</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- 카드배너2: zone-section4b 래핑 (sticky + 캐러셀 스크롤 완료 후 다음 섹션) -->
+  <div id="zone-section4b" class="section-zone">
+    <section id="section4b-patents" class="relative w-full h-[859px] min-h-[859px] bg-icb-dark text-center" data-name="카드배너2">
+      <div class="figma-canvas relative h-full mx-auto">
+        <h2 class="absolute left-1/2 -translate-x-1/2 top-[16px] w-[730px] max-w-[calc(100%-2rem)] text-[80px] max-lg:text-[clamp(2rem,6vw,3rem)] font-medium leading-[1.2] tracking-[-0.04em] text-icb-orange">Intellectual Property &amp; Patents</h2>
+        <p class="absolute left-1/2 -translate-x-1/2 top-[220px] text-lg font-light tracking-[-0.02em] text-white">Patented technology for smarter digital commerce</p>
+        <!-- 캐러셀2: 피그마 top=291, h=432 -->
+        <div id="carousel2-host" class="carousel-host top-[291px] h-[432px]">
+          <div class="carousel-scene"></div>
+        </div>
+        <p class="absolute left-1/2 -translate-x-1/2 top-[746px] text-xs tracking-[1px] text-white">Scroll Down ↓</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- section5: zone-section5 래핑 -->
+  <div id="zone-section5" class="section-zone">
+    <section id="section5-remittance" class="relative w-full h-[890px] min-h-[890px] bg-icb-orange-bright overflow-hidden" data-name="section5_Personal-Remittance">
+    <!-- 피그마와 동일한 절대좌표 프레임 -->
+    <div class="remit-text-group absolute top-[77px] h-[713px] w-[1125px] left-[calc(50%+2.5px)] -translate-x-1/2 max-w-[calc(100%-32px)]">
+
+      <!-- PERSONAL SERVICES 태그: top=0 left=0 -->
+      <span class="remit-reveal remit-d0 absolute left-0 top-0 inline-block bg-[#ffddd5] text-icb-orange text-xs font-medium leading-[18px] px-3.5 py-1.5 rounded-full">PERSONAL SERVICES</span>
+
+      <!-- 텍스트 영역: top=108 left=0 w=461 h=183 -->
+      <div class="absolute left-0 top-[108px] w-[461px] h-[183px]">
+        <p class="remit-reveal remit-d1 absolute left-0 top-[2px] text-[44px] font-medium tracking-[-0.02em] text-white leading-[53px] w-[423px] max-w-full">Fast · Secure· Simple</p>
+        <h2 class="remit-reveal remit-d2 absolute left-0 top-[58px] text-[80px] max-md:text-[clamp(2.5rem,8vw,4rem)] font-medium tracking-[-0.01em] text-white leading-none w-[427px] max-w-full">Remittance</h2>
+        <p class="remit-reveal remit-d3 absolute left-0 top-[161px] text-lg font-normal tracking-[-0.01em] text-white w-[325px] max-w-full">Fast and reliable international transfers</p>
+      </div>
+
+      <!-- 앱 다운로드: top=369 left=0 -->
+      <div class="remit-reveal remit-d4 absolute left-0 top-[369px] flex flex-wrap gap-7">
+        <a href="#" class="block h-[46px] w-[157px]" aria-label="Google Play">
+          <img src="./assets/Google.svg" alt="Google Play" class="h-full w-full object-contain" />
+        </a>
+        <a href="#" class="block h-[46px] w-[157px]" aria-label="App Store">
+          <img src="./assets/Aple.svg" alt="App Store" class="h-full w-full object-contain" />
+        </a>
+      </div>
+
+      <!-- 피그마 1082:1405 — debunk-video: left=583 top=6 w=542 h=707 rounded=20 -->
+      <div class="debunk-video-wrap absolute left-[583px] top-[6px] w-[542px] h-[707px] rounded-[20px] overflow-hidden">
+        <video
+          class="debunk-video absolute inset-0 w-full h-full"
+          src="./assets/debunk-video.mp4"
+          autoplay
+          loop
+          muted
+          playsinline
+          aria-label="DEBUNK remittance app preview"
+        ></video>
+      </div>
+
+    </div>
+    </section>
+  </div>
+
+  <!-- section6_Footer: 302px -->
+  <footer id="section6-footer" class="relative w-full h-[302px] min-h-[302px] bg-[#f5f5f5] border border-[rgba(212,212,212,0.3)] overflow-hidden" data-name="section6_Footer">
+    <div class="figma-canvas relative h-full mx-auto px-4 lg:px-[160px] pt-[37px]">
+      <div class="max-w-[1120px] mx-auto">
+        <div class="flex flex-wrap gap-x-[86px] gap-y-8 mb-[37px]">
+          <img src="./assets/ICB_logo_color.svg" alt="ICB" class="h-[23px] w-auto" />
+          <div>
+            <p class="text-[11px] font-bold text-[#666] mb-[11px]">Personal</p>
+            <a href="#" class="text-[13px] text-[#999] hover:text-[#666]">Remittance</a>
+          </div>
+          <div>
+            <p class="text-[11px] font-bold text-[#666] mb-2">Business</p>
+            <ul class="space-y-2 text-[13px] text-[#999]">
+              <li><a href="#" class="hover:text-[#666]">Cross-Border Payment</a></li>
+              <li><a href="#" class="hover:text-[#666]">B2B Settlement</a></li>
+              <li><a href="#" class="hover:text-[#666]">Prepaid Card</a></li>
+              <li><a href="#" class="hover:text-[#666]">Payment Link</a></li>
+            </ul>
+          </div>
+          <div class="text-[11px]">
+            <p class="font-bold text-[#666] mb-2">Company</p>
+            <ul class="space-y-2 text-[13px] text-[#999]">
+              <li><a href="#" class="hover:text-[#666]">About</a></li>
+              <li><a href="#" class="hover:text-[#666]">Culture</a></li>
+              <li><a href="#" class="hover:text-[#666]">Carears</a></li>
+              <li><a href="#" class="hover:text-[#666]">Media</a></li>
+              <li><a href="#" class="hover:text-[#666]">CI</a></li>
+            </ul>
+          </div>
+          <p class="text-[11px] font-bold text-[#666]">Contact</p>
+        </div>
+        <hr class="border-0 h-px bg-[rgba(212,212,212,0.5)] mb-5" />
+        <p class="text-xs text-[#999]">© ICB. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

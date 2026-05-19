@@ -1,0 +1,380 @@
+/* Figma Home (1082:622) — 1440px 기준, 루트는 max-width로 중앙 정렬 */
+
+:root {
+  --debunk-object-position: 72% 50%;
+}
+
+/* overflow-x: clip — 스크롤 컨테이너를 생성하지 않아 sticky 정상 동작 */
+body {
+  overflow-x: clip;
+}
+
+.figma-canvas {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* 히어로 영상: 블렌드/스케일 아티팩트 최소화 */
+.hero-media {
+  isolation: isolate;
+}
+
+.hero-video {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+[data-name='Hero Title EN'] {
+  will-change: transform;
+}
+
+/* ── Sticky Scroll Zone ── */
+.section-zone {
+  position: relative;
+}
+
+.section-zone > section {
+  position: sticky;
+  top: 0;
+}
+
+/* Zone 높이 및 배경 */
+#zone-section1 {
+  height: 2400px;
+  background: linear-gradient(120.97deg, #090f1a 14.125%, #0c121c 80.965%);
+}
+#zone-section2 {
+  height: 2800px;
+  background: #ffffff;
+}
+#zone-section3 {
+  height: 2800px;
+  background: #f5ece9;
+}
+#zone-section4a {
+  height: 1420px; /* 1020(섹션) + 400(스크롤룸) */
+  background: #0c121c;
+}
+#zone-section4b {
+  height: 1259px; /* 859(섹션) + 400(스크롤룸) */
+  background: #0c121c;
+}
+#zone-section5 {
+  height: 1900px;
+  background: #ea3609;
+}
+
+/* Zone 내 섹션 background를 투명으로 */
+#zone-section1 > #section1-company-intro { background: transparent !important; }
+#zone-section2 > #section2-business-services { background: transparent !important; }
+#zone-section3 > #section3-count { background: transparent !important; }
+#zone-section4a > #section4a-licenses { background: transparent !important; }
+#zone-section4b > #section4b-patents  { background: transparent !important; }
+#zone-section5 > #section5-remittance { background: transparent !important; }
+
+/* ── section1: 피그마 888px ── */
+.section1-intro {
+  position: relative;
+  width: 100%;
+  height: 888px;
+  min-height: 888px;
+  background: linear-gradient(120.97deg, #090f1a 14.125%, #0c121c 80.965%);
+  overflow: hidden;
+}
+
+.section1-intro .section1-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 888px;
+  margin: 0 auto;
+}
+
+/* intro-lines-wrap: Figma top=90px */
+.intro-lines-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 90px;
+  width: 817px;
+  max-width: calc(100% - 32px);
+  height: 521px;
+}
+
+/* ── jeton.com 스타일 Reveal ── overflow:hidden 클립 + translateY만 사용, opacity 없음 */
+.reveal-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.reveal-char {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s);
+}
+
+/* intro-line: 프레임 밑에서 올라옴
+   section1-intro의 overflow:hidden이 클립 역할 */
+.intro-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(700px);
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-line[data-line="0"] { top: 0;     transition-delay: 0s; }
+.intro-line[data-line="1"] { top: 190px; transition-delay: 0.14s; }
+.intro-line[data-line="2"] { top: 380px; transition-delay: 0.28s; }
+
+/* is-set: 제자리로 */
+.intro-line.is-set {
+  transform: translateY(0);
+}
+
+/* 부제: 피그마 top=666px */
+.intro-sub {
+  position: absolute;
+  left: 50%;
+  top: 666px;
+  width: 476px;
+  max-width: calc(100% - 48px);
+  margin-left: -238px;
+  text-align: center;
+  transform: translateY(700px);
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.42s;
+}
+
+.intro-sub.is-set {
+  transform: translateY(0);
+}
+
+@media (max-width: 520px) {
+  .intro-sub {
+    margin-left: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(700px);
+  }
+  .intro-sub.is-set {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Hero scroll indicator 애니메이션 */
+@keyframes heroScrollTextFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+@keyframes heroScrollLineFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(10px); }
+}
+
+.hero-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 67px;
+  height: 50px;
+}
+
+.hero-scroll-text {
+  animation: heroScrollTextFloat 2s ease-in-out infinite;
+}
+
+.hero-scroll-line {
+  display: block;
+  width: 2px;
+  height: 32px;
+  margin-top: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.35) 55%, rgba(255,255,255,0));
+  box-shadow: 0 0 12px rgba(255,255,255,0.35);
+  animation: heroScrollLineFloat 2.1s ease-in-out infinite;
+}
+
+/* section2 제목: 라인 클립 올라옴 */
+.biz-title-inner {
+  transform: translateY(110%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.biz-title-line.is-visible .biz-title-inner {
+  transform: translateY(0);
+}
+
+.biz-title-line:nth-child(2) .biz-title-inner {
+  transition-delay: 0.12s;
+}
+
+/* biz-card */
+.biz-card {
+  opacity: 0;
+  transform: translateY(120px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.biz-card.is-set,
+.biz-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.biz-card:nth-child(1),
+.biz-card:nth-child(2),
+.biz-card:nth-child(3),
+.biz-card:nth-child(4) {
+  transition-delay: 0s !important;
+}
+
+/* reveal-up (intersection용) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── count-reveal: jeton 스타일 (opacity 없음, 클립만) ── */
+/* .reveal-char 기본 규칙(translateY 110%)이 이미 적용됨 — 중복 ID 규칙 없음 */
+
+.count-reveal.is-set .reveal-char,
+.count-reveal.is-visible .reveal-char {
+  transform: translateY(0);
+}
+
+/* remit-reveal (section5 — opacity+Y 유지) */
+.remit-reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.remit-reveal.is-set,
+.remit-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Video ── */
+.hero-video,
+.debunk-video {
+  pointer-events: none;
+}
+
+.debunk-video {
+  object-fit: cover;
+  object-position: var(--debunk-object-position);
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── 3D 카드 캐러셀 ── */
+.carousel-host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.carousel-scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 2600px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-card {
+  position: absolute;
+  border-radius: 16px;
+  overflow: hidden;
+  transition:
+    transform 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity   1.2s ease,
+    filter    1.2s ease;
+  will-change: transform;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  transform-style: preserve-3d;
+}
+
+.carousel-card-icon {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  z-index: 5;
+}
+
+.carousel-overlay {
+  position: absolute;
+  left: 28px;
+  bottom: 60px;
+  color: white;
+  z-index: 5;
+}
+
+.carousel-num {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.carousel-title {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.carousel-reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+/* ── prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-text,
+  .hero-scroll-line,
+  .reveal-char,
+  .reveal-up,
+  .remit-reveal,
+  .biz-card,
+  .biz-title-inner {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  [data-name='Hero Title EN'] {
+    transform: translate(-50%, 0) !important;
+    will-change: auto;
+  }
+}
